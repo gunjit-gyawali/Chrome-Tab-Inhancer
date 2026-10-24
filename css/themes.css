@@ -1,0 +1,9 @@
+/* Theme modifiers */
+.high-contrast { --text-shadow: none; --border-color: var(--text-primary); }
+.high-contrast body { text-shadow: none; }
+.high-contrast .widget { text-shadow: 0 0 2px #000, 0 0 6px #000 !important; }
+.high-contrast .search-form, .high-contrast .shortcut .shortcut-icon { border-color: var(--text-primary) !important; }
+
+.no-anim *, .no-anim *::before, .no-anim *::after {
+  animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important;
+}

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Ultra New Tab",
+  "version": "1.0.0",
+  "description": "A deeply customizable, local-first new-tab page: layouts, backgrounds, typography, widgets and custom CSS.",
+  "chrome_url_overrides": { "newtab": "newtab.html" },
+  "options_page": "settings.html",
+  "permissions": ["storage", "unlimitedStorage", "favicon"],
+  "optional_permissions": ["bookmarks"],
+  "icons": { "48": "assets/icon.png", "128": "assets/icon.png" },
+  "action": { "default_title": "Ultra New Tab settings" },
+  "background": { "service_worker": "js/background.js", "type": "module" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}

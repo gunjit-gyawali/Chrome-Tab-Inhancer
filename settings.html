@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings Studio</title>
+  <link rel="stylesheet" href="css/settings.css">
+  <script type="module" src="js/settings.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo">◆</span> Settings Studio</div>
+    <div class="search-wrap">
+      <input id="q" type="search" placeholder="Search settings… e.g. clock position, background blur, shortcut gap" aria-label="Search settings" autocomplete="off">
+    </div>
+    <div class="top-actions">
+      <button id="undo" title="Undo (Ctrl+Z)">↶ Undo</button>
+      <button id="redo" title="Redo (Ctrl+Shift+Z)">↷ Redo</button>
+      <select id="previewMode" aria-label="Preview size">
+        <option value="desktop">Preview: desktop</option>
+        <option value="narrow">Preview: narrow</option>
+        <option value="off">Preview: hidden</option>
+      </select>
+      <a class="btn" href="newtab.html#edit" target="_blank">Layout editor ↗</a>
+      <a class="btn primary" href="newtab.html" target="_blank">Open new tab ↗</a>
+    </div>
+  </header>
+  <div class="shell">
+    <nav id="nav" class="nav" aria-label="Setting categories"></nav>
+    <main id="panel" class="panel" tabindex="-1"></main>
+    <aside id="previewPane" class="preview">
+      <div class="preview-frame-wrap"><iframe id="preview" title="Live preview" src="newtab.html?preview=1"></iframe></div>
+    </aside>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

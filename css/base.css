@@ -1,0 +1,45 @@
+/* Base: reset, bundled fonts, shared tokens. Documented variables are listed in README.md */
+@font-face { font-family: 'Satisfy'; src: url('../assets/fonts/Satisfy.woff2') format('woff2'); font-display: swap; }
+
+:root {
+  --page-background: #0e1015; --surface: #151922; --text-primary: #f4f1ea; --text-secondary: #c9c3b8; --text-muted: #8a857c;
+  --accent-color: #e8b86b; --border-color: rgba(255,255,255,.12); --border-width: 1px; --radius: 14px;
+  --glass: rgba(21,25,34,.18); --glass-blur: 14px; --shadow: 0 4px 18px rgba(0,0,0,.18);
+  --widget-gap: 24px; --content-width: 900px; --content-padding: 24px;
+  --font: "Satisfy", system-ui, sans-serif; --font-size: 16px; --font-weight: 400; --letter-spacing: 0; --line-height: 1.3;
+  --text-shadow: 0 1px 8px rgba(0,0,0,.35); --t-dur: 200ms; --t-ease: ease; --entrance-ms: 600ms; --scale: 1;
+  --shadow-none: none; --shadow-soft: 0 4px 18px rgba(0,0,0,.18); --shadow-medium: 0 10px 30px rgba(0,0,0,.3);
+  --shadow-strong: 0 18px 50px rgba(0,0,0,.45); --shadow-glow: 0 0 24px var(--accent-color);
+  color-scheme: dark;
+}
+:root[data-mode="light"] { color-scheme: light; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+html.loading body { opacity: 0; }
+body {
+  background: var(--page-background); color: var(--text-primary);
+  font-family: var(--font); font-size: var(--font-size); font-weight: var(--font-weight);
+  letter-spacing: var(--letter-spacing); line-height: var(--line-height); text-shadow: var(--text-shadow);
+  overflow: hidden; transition: opacity 120ms;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: normal; }
+button { cursor: pointer; }
+a { color: inherit; }
+.muted { color: var(--text-muted); }
+.small { font-size: .8em; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: var(--w-align, center); }
+.glass {
+  background: var(--glass); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--border-width) solid var(--border-color); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.widget button:not(.shortcut):not(.tab):not(.icon-btn):not(.search-clear):not(.shortcut-group),
+.mini-dialog button, .ctx-menu button {
+  border: var(--border-width) solid var(--border-color); background: var(--glass); border-radius: calc(var(--radius) * .6);
+  padding: .35em .9em; text-shadow: none; font-family: system-ui, sans-serif; font-size: .85em;
+  transition: background var(--t-dur) var(--t-ease), transform var(--t-dur) var(--t-ease);
+}
+.widget button.primary, .mini-dialog button.primary { background: var(--accent-color); color: var(--page-background); border-color: transparent; }
+.icon-btn { background: none; border: 0; padding: 0 .3em; opacity: .6; font-size: 1.1em; }
+.icon-btn:hover { opacity: 1; }
+:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
